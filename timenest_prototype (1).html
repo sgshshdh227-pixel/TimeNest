@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TimeNest — Leave a Message for the Future</title>
+<style>
+:root{--bg:#0b1020;--panel:#141c31;--panel2:#1b2742;--text:#f5f7ff;--muted:#aab6d3;--gold:#f0c879;--line:#2a3858;--green:#9de2c1}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top right,#1b3157 0,transparent 36%),var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.wrap{max-width:1080px;margin:auto;padding:28px 18px 60px}.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:45px}.brand{font-weight:800;font-size:1.3rem;letter-spacing:.3px}.brand span{color:var(--gold)}.tag{color:var(--muted);font-size:.9rem}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;margin-bottom:32px}.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:2px;font-size:.75rem;font-weight:800}h1{font-size:clamp(2.3rem,5vw,4.3rem);line-height:1.05;margin:12px 0 18px;letter-spacing:-1.8px}.hero p{color:var(--muted);max-width:620px}.hero-art{min-height:250px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(145deg,#192849,#11192d);display:grid;place-items:center;text-align:center;padding:25px}.orb{width:142px;height:142px;border-radius:50%;border:1px solid #8e784f;box-shadow:0 0 0 15px #f0c8790d,0 0 60px #f0c8791c;display:grid;place-items:center;font-size:4rem;margin:0 auto 18px}.btn{border:0;border-radius:12px;padding:12px 17px;font-weight:750;cursor:pointer;background:var(--gold);color:#161b28}.btn.secondary{background:#263654;color:var(--text);border:1px solid #3a4c70}.btn:focus,input:focus,textarea:focus,select:focus{outline:2px solid var(--gold);outline-offset:2px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0 32px}.stat,.panel,.capsule{background:#121b2f;border:1px solid var(--line);border-radius:18px;padding:18px}.stat strong{display:block;font-size:1.5rem}.stat span,.muted{color:var(--muted);font-size:.9rem}.layout{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel h2{margin:0 0 6px;font-size:1.25rem}.panel p{margin:0 0 16px;color:var(--muted);font-size:.92rem}.field{display:grid;gap:6px;margin:12px 0}.field label{font-size:.88rem;color:#dce4fa}.field input,.field textarea,.field select{width:100%;background:#0c1426;border:1px solid #344363;color:var(--text);border-radius:10px;padding:11px;font:inherit}.field textarea{min-height:100px;resize:vertical}.field small{color:var(--muted)}.capsules{display:grid;gap:12px;margin-top:14px}.capsule-top{display:flex;justify-content:space-between;gap:12px;align-items:start}.pill{font-size:.75rem;padding:4px 9px;border-radius:999px;background:#293956;color:#dbe6ff;white-space:nowrap}.pill.locked{color:#ffdfa0;background:#49391f}.pill.open{color:#a9f0d0;background:#193e37}.capsule h3{margin:0 0 5px}.capsule p{margin:0;color:var(--muted);white-space:pre-wrap;overflow-wrap:anywhere}.empty{border:1px dashed #3a4c70;border-radius:14px;padding:22px;text-align:center;color:var(--muted)}.notice{margin-top:20px;padding:14px 16px;border-radius:12px;border:1px solid #6d5a31;background:#2c2519;color:#f5dfae;font-size:.87rem}.foot{color:var(--muted);text-align:center;font-size:.82rem;margin-top:35px}@media(max-width:760px){.hero,.layout{grid-template-columns:1fr}.hero-art{min-height:210px}.stats{grid-template-columns:1fr}.nav{margin-bottom:30px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="nav"><div class="brand">◈ Time<span>Nest</span></div><div class="tag">Leave a Message for the Future</div></nav>
+  <section class="hero">
+    <div><div class="eyebrow">Your personal time capsule</div><h1>Save today.<br>Meet your future.</h1><p>Keep a letter, a memory, a dream, or a promise for the person you’ll become. Choose a future date and let time add meaning.</p><div class="actions"><button class="btn" onclick="document.getElementById('title').focus()">Create a capsule ↓</button><button class="btn secondary" onclick="document.getElementById('vault').scrollIntoView({behavior:'smooth'})">Open my vault</button></div></div>
+    <div class="hero-art"><div><div class="orb">⌛</div><strong>Your memories, waiting in time</strong><div class="muted">A small demo of a bigger idea</div></div></div>
+  </section>
+  <section class="stats"><div class="stat"><strong id="count">0</strong><span>Capsules saved in this browser</span></div><div class="stat"><strong>2030+</strong><span>Choose a future date</span></div><div class="stat"><strong>Private*</strong><span>Local demo experience</span></div></section>
+  <div class="layout">
+    <section class="panel" id="create"><h2>Create a capsule</h2><p>Write a note and set the date you want to revisit it.</p>
+      <form id="capsuleForm">
+        <div class="field"><label for="title">Capsule title</label><input id="title" maxlength="80" required placeholder="e.g. A letter to my 2030 self"></div>
+        <div class="field"><label for="kind">Memory type</label><select id="kind"><option>Letter / text</option><option>Photo (demo placeholder)</option><option>Video (demo placeholder)</option><option>Voice note (demo placeholder)</option><option>Life goal</option></select></div>
+        <div class="field"><label for="message">Your message</label><textarea id="message" maxlength="5000" required placeholder="What do you want your future self to remember?"></textarea></div>
+        <div class="field"><label for="unlock">Open on or after</label><input id="unlock" type="date" required><small>The demo uses your device’s date and time.</small></div>
+        <button class="btn" type="submit">Save capsule</button>
+      </form>
+    </section>
+    <section class="panel" id="vault"><h2>My vault</h2><p>Your saved demo capsules appear here on this same browser.</p><div id="capsules" class="capsules"><div class="empty">No capsules yet. Create your first one.</div></div><div class="actions"><button class="btn secondary" id="exportBtn" type="button">Export my capsules</button><button class="btn secondary" id="clearBtn" type="button">Clear demo data</button></div></section>
+  </div>
+  <div class="notice"><strong>Important:</strong> This is an early prototype. It stores text only in this browser on this device. It does not yet provide accounts, online backup, real photo/video uploads, encryption, or guaranteed future delivery. Do not save sensitive or irreplaceable information here.</div>
+  <div class="foot">TimeNest prototype · Built to test the idea before developing secure cloud storage.</div>
+</div>
+<script>
+const KEY='timenest_capsules_v1';
+const today=new Date(); const localISO=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);
+document.getElementById('unlock').min=localISO; document.getElementById('unlock').value=String(Number(localISO.slice(0,4))+1)+localISO.slice(4);
+function getItems(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return []}}
+function saveItems(items){localStorage.setItem(KEY,JSON.stringify(items))}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){const items=getItems();document.getElementById('count').textContent=items.length;const root=document.getElementById('capsules');if(!items.length){root.innerHTML='<div class="empty">No capsules yet. Create your first one.</div>';return}
+root.innerHTML=items.slice().sort((a,b)=>a.unlock.localeCompare(b.unlock)).map(item=>{const unlocked=item.unlock<=localISO;return `<article class="capsule"><div class="capsule-top"><div><h3>${escapeHTML(item.title)}</h3><div class="muted">${escapeHTML(item.kind)} · Opens ${escapeHTML(item.unlock)}</div></div><span class="pill ${unlocked?'open':'locked'}">${unlocked?'Available in demo':'Locked until date'}</span></div><p style="margin-top:12px">${unlocked?escapeHTML(item.message):'🔒 Your message is hidden in this demo until the selected date.'}</p><div class="actions"><button class="btn secondary" type="button" onclick="deleteCapsule('${item.id}')">Delete</button></div></article>`}).join('')}
+function deleteCapsule(id){saveItems(getItems().filter(x=>x.id!==id));render()}
+document.getElementById('capsuleForm').addEventListener('submit',e=>{e.preventDefault();const item={id:Date.now().toString(36)+Math.random().toString(36).slice(2,7),title:document.getElementById('title').value.trim(),kind:document.getElementById('kind').value,message:document.getElementById('message').value.trim(),unlock:document.getElementById('unlock').value,created:new Date().toISOString()};if(!item.title||!item.message||!item.unlock)return;const items=getItems();items.push(item);saveItems(items);e.target.reset();document.getElementById('unlock').min=localISO;document.getElementById('unlock').value=String(Number(localISO.slice(0,4))+1)+localISO.slice(4);render();alert('Capsule saved in this browser. This is only a local demo.')});
+document.getElementById('exportBtn').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(getItems(),null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='timenest-capsules.json';a.click();URL.revokeObjectURL(url)});
+document.getElementById('clearBtn').addEventListener('click',()=>{if(confirm('Delete all TimeNest demo capsules from this browser?')){localStorage.removeItem(KEY);render()}});
+render();
+</script>
+</body>
+</html>
